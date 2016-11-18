@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="jquery-1.12.2.js"></script>
+    <script>
+        $(document).ready(function () {
+            //1. 找li注册mouseenter事件
+            $(".wrap li").mouseenter(function () {
+                //2. 让当前元素高亮显示，让其他元素不高亮
+                $(this).css("backgroundColor", "pink").siblings("li").css("backgroundColor", "white");
+            });
+
+            //3. 让所有的元素全部去除高亮
+            $(".wrap").mouseleave(function () {
+                //1. $("li")
+                //2. $(".wrap>ul>li")
+                //3. $(".wrap li");
+                //$(this).children("ul").children("li");
+                $(this).find("li").css("backgroundColor", "white");
+            });
+        });
+    </script>
+
+</head>
+<body>
+<div class="wrap">
+    <ul>
+        <li>我是第1个li的元素</li>
+        <li>我是第2个li的元素</li>
+        <li>我是第3个li的元素</li>
+        <li>我是第4个li的元素</li>
+        <li>我是第5个li的元素</li>
+        <li>我是第6个li的元素</li>
+        <li>我是第7个li的元素</li>
+        <li>我是第8个li的元素</li>
+        <li>我是第9个li的元素</li>
+        <li>我是第10个li的元素</li>
+    </ul>
+</div>
+</body>
+</html>

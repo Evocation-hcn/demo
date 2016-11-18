@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="jquery-1.12.2.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            //奇数过滤选择器
+            // 语法： ：odd
+            $("li:odd").css("backgroundColor", "pink");
+
+            //偶数过滤选择器
+            $("li:even").css("backgroundColor", "lightgray");
+
+            //相等过滤选择器
+            $("li:eq(0)").css("fontSize", "32px");
+            //$("li")[0];
+        });
+    </script>
+</head>
+<body>
+<ul>
+    <li>我是第1个li的内容</li>
+    <li>我是第2个li的内容</li>
+    <li>我是第3个li的内容</li>
+    <li>我是第4个li的内容</li>
+    <li>我是第5个li的内容</li>
+    <li>我是第6个li的内容</li>
+    <li>我是第7个li的内容</li>
+    <li>我是第8个li的内容</li>
+    <li>我是第9个li的内容</li>
+    <li>我是第10个li的内容</li>
+</ul>
+</body>
+</html>
