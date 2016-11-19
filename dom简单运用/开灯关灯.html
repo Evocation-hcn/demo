@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body id="b">
+<input type="button" id="btn" value="关灯">
+
+<script>
+    var btn = document.getElementById("btn");
+    var isOpen = true;
+    btn.onclick = function () {
+
+        //style是对象，并且这个对象的属性都是字符串类型
+        //css中背景颜色的属性名称 background-color
+        //dom中  对应的是backgroundColor
+//        console.log(document.body.style);
+        if(isOpen) {
+            document.body.style.backgroundColor = "black";
+
+            this.value = "开灯";
+//            isOpen = false;
+        }else{
+            document.body.style.backgroundColor = "white";
+            this.value = "关灯";
+//            isOpen = true;
+        }
+        isOpen = !isOpen;
+
+    }
+</script>
+</body>
+</html>

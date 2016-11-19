@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> sort原理</title>
+</head>
+<body>
+<script>
+    /*function sort(arr) {
+     for (var i = 0; i < arr.length - 1; i++) {
+     var flag = true;
+     for (var j = 0; j < arr.length - 1 - i; j++) {
+     if (arr[j] < arr[j + 1]) {
+     var temp = arr[j + 1];
+     arr[j + 1] = arr[j];
+     arr[j] = temp;
+     flag = false;
+     }
+     }
+     if (flag) {
+     break;
+     }
+     }
+     return arr;
+     }*/
+
+    function sort(arr, fn) {
+        for (var i = 0; i < arr.length - 1; i++) {
+            var flag = true;
+            for (var j = 0; j < arr.length - 1 - i; j++) {
+                if (fn(arr[j], arr[j + 1]) > 0) {
+                    var temp = arr[j + 1];
+                    arr[j + 1] = arr[j];
+                    arr[j] = temp;
+                    flag = false;
+                }
+            }
+            if (flag) {
+                break;
+            }
+        }
+        return arr;
+    }
+    var arr = [3, 6, 1, 5, 10, 2];
+    var arr2 = ["aa", "aaaa", "aaaaaaa", "aaa"];
+    console.log(sort(arr2, function (a, b) {
+        return (a.length - b.length);
+    }));
+    var arr3 = [{
+        name: "sisi",
+        age: 18
+    }, {
+        name: "sisi2",
+        age: 1
+    }, {
+        name: "w8",
+        age: 1000
+    }
+    ]
+
+    console.log(sort(arr3, function (a, b) {
+        return a.age - b.age;
+    }));
+
+
+</script>
+</body>
+</html>

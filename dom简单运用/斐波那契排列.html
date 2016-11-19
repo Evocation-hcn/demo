@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //求Fibonacci的第n个数1 1 2 3 5 8 13 21...
+    //2=1+1
+    //getFib(3)=getFib(2)+getFib(1)
+    //getFib(n)=getFib(n-1)+getFib(n-2)
+    function getFib(n) {
+        if (n == 1 || n == 2) {
+            return 1;
+        }
+        var fib = 0;
+        fib = getFib(n - 1) + getFib(n - 2);
+        return fib;
+    }
+    console.log(getFib(12));//144
+
+</script>
+</body>
+</html>

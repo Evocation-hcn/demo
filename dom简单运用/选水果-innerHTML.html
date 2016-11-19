@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        select {
+            width: 100px;
+            height: 150px;
+        }
+    </style>
+</head>
+<body>
+    <select id="all" multiple="multiple">
+        <option>苹果</option>
+        <option>香蕉</option>
+        <option>梨</option>
+        <option>西红柿</option>
+        <option>黄瓜</option>
+    </select>
+
+    <input type="button" value=">>" id="btn1">
+    <input type="button" value="<<" id="btn2">
+    <input type="button" value=">" id="btn3">
+    <input type="button" value="<" id="btn4">
+
+
+    <select id="sel" multiple="multiple">
+
+    </select>
+
+    <script>
+        function my$(id) {
+            return document.getElementById(id);
+        }
+        //1 全部移动过去
+        var btn1 = my$("btn1");
+        btn1.onclick = function () {
+            var sel = my$("sel");
+            //获取到全部的水果
+            var all = my$("all");
+
+            sel.innerHTML += all.innerHTML;
+            all.innerHTML = "";
+        }
+
+        //2 全部移动回来
+        var btn2 = my$("btn2");
+        btn2.onclick = function () {
+            var all = my$("all");
+            var sel = my$("sel");
+
+            all.innerHTML += sel.innerHTML;
+            sel.innerHTML = "";
+
+        };
+
+        //3 把选中的移动过去
+        var btn3 = my$("btn3");
+        btn3.onclick = function () {
+            var all = my$("all");
+            var sel = my$("sel");
+            //
+            for(var i = 0; i < all.children.length;i++) {
+                var option = all.children[i];
+                //判断是否选中
+                if(option.selected) {
+                    sel.appendChild(option);
+                    i--;
+                }
+            }
+        };
+
+        //4 把选中的移动回来
+        var btn4 = my$("btn4");
+        btn4.onclick = function () {
+            var all = my$("all");
+            var sel = my$("sel");
+            //
+            for(var i = 0; i < sel.children.length;i++) {
+                var option = sel.children[i];
+                //判断是否选中
+                if(option.selected) {
+                    all.appendChild(option);
+                    i--;
+                }
+            }
+        };
+
+    </script>
+</body>
+</html>
